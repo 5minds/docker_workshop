@@ -5,8 +5,8 @@ export default class Root extends React.Component {
 
   state = {
     posts: [],
-    pythonResult: 'TestPython',
-    nodeResult: 'TestNode'
+    pythonResult: 'Not found',
+    nodeResult: 'Not found'
   }
 
   constructor(props) {
@@ -105,7 +105,7 @@ export default class Root extends React.Component {
         return response.json();
     })
     .then((myJson) => {
-        this.setState({ nodeResult: `node: ${myJson.hostname}`});
+        this.setState({ nodeResult: `node hostname: ${myJson.hostname}`});
     });
   }
   
@@ -115,7 +115,7 @@ export default class Root extends React.Component {
         return response.json();
     })
     .then((myJson) => {
-        this.setState({ pythonResult: `python: ${myJson.hostname}`});
+        this.setState({ pythonResult: `python hostname: ${myJson.hostname}`});
     });
   }
 }
