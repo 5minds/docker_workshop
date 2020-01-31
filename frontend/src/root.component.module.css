@@ -1,0 +1,27 @@
+.container {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 20% 60% 20%;
+}
+
+.post {
+    margin-top: 5px;
+}
+
+.title {
+    padding: 5px;
+}
+
+.message {
+    padding: 5px;
+}
+
+.inputArea {
+    display: grid;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;
+}
+
+
