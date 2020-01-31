@@ -76,7 +76,7 @@ export default class Root extends React.Component {
           message: message
       }; 
 
-      fetch('https://localhost:5001/post/', { 
+      fetch('http://localhost:5000/post/', { 
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ export default class Root extends React.Component {
   }
 
   getPosts() {
-    fetch('https://localhost:5001/post/')
+    fetch('http://localhost:5000/post/')
     .then((response) => {
         return response.json();
     })
