@@ -6,4 +6,6 @@ COPY . /app
 
 EXPOSE 5000
 
+RUN dotnet restore
+
 CMD dotnet run
