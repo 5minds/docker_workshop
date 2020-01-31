@@ -9,4 +9,4 @@ def GetPython():
     result = { 'hostname': system_name}
     return result
 
-run(host='localhost', port=3001)
+run(host='0.0.0.0', port=3001)
