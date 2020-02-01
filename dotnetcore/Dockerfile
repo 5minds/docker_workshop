@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY . /app
 
+VOLUME /app/db
+
 EXPOSE 5000
 
 RUN dotnet restore
