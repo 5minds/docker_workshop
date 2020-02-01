@@ -2,8 +2,10 @@ FROM node:latest
 
 WORKDIR /app
 
-COPY . .
+COPY package.json .
 
 RUN npm install
+
+COPY index.js .
 
 CMD npm start
