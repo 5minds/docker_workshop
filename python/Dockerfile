@@ -1,11 +1,13 @@
 FROM python:3.7
 
-WORKDIR /app
-
-COPY . .
-
 RUN pip install pipenv
 
+WORKDIR /app
+
+COPY Pipfile .
+
 RUN pipenv install
+
+COPY main.py .
 
 CMD pipenv run python main.py
