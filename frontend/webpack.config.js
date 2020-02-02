@@ -10,7 +10,7 @@ module.exports = {
     filename: 'main.js',
     library: 'main',
     libraryTarget: 'umd',
-    path: path.resolve(__dirname, 'build/main'),
+    path: path.resolve(__dirname, 'build/'),
   },
   mode: 'production',
   module: {
