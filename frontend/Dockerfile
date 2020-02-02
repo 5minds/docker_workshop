@@ -1,6 +1,6 @@
-FROM node:current-alpine3.11
+FROM node:current-alpine3.11 AS builder
 
-WORKDIR /app
+WORKDIR /src
 
 COPY package.json .
 
@@ -8,4 +8,10 @@ RUN npm install
 
 COPY . .
 
-CMD npm start
+RUN npm run build
+
+FROM nginx:alpine
+
+COPY --from=builder /src/build /usr/share/nginx/html
+
+COPY --from=builder /src/index.html /usr/share/nginx/html

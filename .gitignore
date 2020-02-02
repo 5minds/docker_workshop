@@ -350,4 +350,8 @@ MigrationBackup/
 .ionide/
 *.db
 
+<<<<<<< HEAD
 build/
+=======
+build
+>>>>>>> :whale: use multi-stage build for frontend
