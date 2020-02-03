@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+    dotnetcore-api:
+        build:
+            context: ./dotnetcore/
+        volumes: 
+            - posts_db:/app/db
+        ports: 
+            - "5000:5000"
+    frontend:
+        build:
+            context: ./frontend/
+        ports:
+            - "80:80"
+    node-api:
+        build:
+            context: ./node/
+        ports:
+            - "3000:3000"
+    python-api:
+        build:
+            context: ./python
+        ports:
+            - "3001:3001"
+        tty: true
+
+volumes:
+    posts_db:
