@@ -5,6 +5,12 @@
   grid-template-columns: 20% 60% 20%;
 }
 
+.postsContainer {
+    display: block;
+    padding-left: 20%;
+    padding-right: 20%;   
+}
+
 .post {
     margin-top: 5px;
 }
@@ -18,10 +24,60 @@
 }
 
 .inputArea {
-    display: grid;
+    display: block;
     margin-left: 20%;
     margin-right: 20%;
     margin-top: 10%;
+    padding: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 21px 0 rgba(0, 0, 0, 0.19);
 }
+
+.inputField {
+    display: block;
+    width: 98%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    margin: 5px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.textarea {
+    display: block;
+    width: 98%;
+    height: 100px;
+    padding: .375rem .75rem;
+    margin: 5px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.buttonBar {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.button {
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 21px 0 rgba(0, 0, 0, 0.19);
+  }
 
 

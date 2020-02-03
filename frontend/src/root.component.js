@@ -48,15 +48,18 @@ export default class Root extends React.Component {
             {this.state.pythonResult}
             </div>
             <div>
-                <div>
+                <div className={styles.postsContainer}>
                 {postElements}
                 </div>
                 <div className={styles.inputArea}>
-                    <input ref={this.titleField} type="text" placeholder="Titel"></input>
-                    <textarea ref={this.messageField} placeholder="Nachricht">
+                    <input ref={this.titleField} className={styles.inputField} type="text" placeholder="Titel"></input>
+                    <textarea ref={this.messageField} className={styles.textarea} placeholder="Nachricht">
 
                     </textarea>
-                    <button onClick={this.handleOnClick.bind(this)}>Post</button>
+                    <div className={styles.buttonBar}>
+                        <div></div>
+                        <button className={styles.button} align="right" onClick={this.handleOnClick.bind(this)}>Post</button>
+                    </div> 
                 </div>
             </div>
             <div>
