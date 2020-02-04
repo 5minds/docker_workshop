@@ -1,6 +1,7 @@
 version: "3.7"
 services:
     dotnetcore-api:
+        image: vega/dotnetcore
         build:
             context: ./dotnetcore/
         volumes: 
@@ -8,16 +9,19 @@ services:
         ports: 
             - "5000:5000"
     frontend:
+        image: vega/frontend
         build:
             context: ./frontend/
         ports:
             - "80:80"
     node-api:
+        image: vega/node
         build:
             context: ./node/
         ports:
             - "3000:3000"
     python-api:
+        image: vega/python
         build:
             context: ./python
         ports:
