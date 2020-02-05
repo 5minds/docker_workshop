@@ -79,7 +79,7 @@ export default class Root extends React.Component {
           message: message
       }; 
 
-      fetch('http://localhost/dotnetcore/post/', { 
+      fetch('http://localhost:5000/post/', { 
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ export default class Root extends React.Component {
   }
 
   getPosts() {
-    fetch('http://localhost/dotnetcore/post/')
+    fetch('http://localhost:5000/post/')
     .then((response) => {
         return response.json();
     })
@@ -103,7 +103,7 @@ export default class Root extends React.Component {
 
 
   getNode() {
-    fetch('http://localhost/node/')
+    fetch('http://localhost:3000')
     .then((response) => {
         return response.json();
     })
@@ -113,7 +113,7 @@ export default class Root extends React.Component {
   }
   
   getPython() {
-    fetch('http://localhost/python/')
+    fetch('http://localhost:3001')
     .then((response) => {
         return response.json();
     })
