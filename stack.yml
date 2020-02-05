@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+    dotnetcore-api:
+        image: vega/dotnetcore
+        volumes: 
+            - posts_db:/app/db
+        ports: 
+            - "5000:5000"
+    frontend:
+        image: vega/frontend
+        ports:
+            - "80:80"
+    node-api:
+        image: vega/node
+        ports:
+            - "3000:3000"
+    python-api:
+        image: vega/python
+        ports:
+            - "3001:3001"
+        tty: true
+    portainer:
+        image: portainer/portainer:latest
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock 
+            - portainer_data:/data
+        ports:
+            - "8000:8000"
+            - "9000:9000"
+
+volumes:
+    posts_db:
+    portainer_data:
