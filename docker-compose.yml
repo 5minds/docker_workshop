@@ -7,25 +7,45 @@ services:
         volumes: 
             - posts_db:/app/db
         ports: 
-            - "5000:5000"
+            - "5000"
+        labels:
+            - traefik.enable=true
+            - traefik.http.routers.dotnetcore-api.rule=PathPrefix(`/dotnetcore`)
+            - traefik.http.routers.dotnetcore-api.middlewares=dotnetcore-api
+            - "traefik.http.middlewares.dotnetcore-api.stripprefix.prefixes=/dotnetcore"
     frontend:
         image: vega/frontend
         build:
             context: ./frontend/
         ports:
-            - "80:80"
+            - "80"
+        labels:
+            - traefik.enable=true
+            - traefik.http.routers.frontend.rule=PathPrefix(`/frontend`)
+            - traefik.http.routers.frontend.middlewares=frontend
+            - "traefik.http.middlewares.frontend.stripprefix.prefixes=/frontend"
     node-api:
         image: vega/node
         build:
             context: ./node/
         ports:
-            - "3000:3000"
+            - "3000"
+        labels:
+            - traefik.enable=true
+            - traefik.http.routers.node.rule=PathPrefix(`/node`)
+            - traefik.http.routers.node.middlewares=node
+            - "traefik.http.middlewares.node.stripprefix.prefixes=/node"
     python-api:
         image: vega/python
         build:
             context: ./python
         ports:
-            - "3001:3001"
+            - "3001"
+        labels:
+            - traefik.enable=true
+            - traefik.http.routers.python.rule=PathPrefix(`/python`)
+            - traefik.http.routers.python.middlewares=python
+            - "traefik.http.middlewares.python.stripprefix.prefixes=/python"
         tty: true
     portainer:
         image: portainer/portainer:latest
@@ -35,6 +55,13 @@ services:
         ports:
             - "8000:8000"
             - "9000:9000"
+    traefik:
+        image: traefik:latest
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - ./traefik/traefik.toml:/etc/traefik/traefik.toml
+        ports: 
+            - "80:80"
 
 volumes:
     posts_db:
