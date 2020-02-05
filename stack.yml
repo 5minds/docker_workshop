@@ -14,6 +14,14 @@ services:
         deploy:
             mode: replicated
             replicas: 2
+            resources:
+                limits:
+                    cpus: '0.50'
+                    memory: 500M
+                reservations:
+                    cpus: '0.25'
+                    memory: 20M
+
     frontend:
         image: vega/frontend
         labels:
@@ -26,6 +34,13 @@ services:
         deploy:
             mode: replicated
             replicas: 2
+            resources:
+                limits:
+                    cpus: '0.50'
+                    memory: 500M
+                reservations:
+                    cpus: '0.25'
+                    memory: 20M
     node-api:
         image: vega/node
         labels:
@@ -38,6 +53,13 @@ services:
         deploy:
             mode: replicated
             replicas: 2
+            resources:
+                limits:
+                    cpus: '0.50'
+                    memory: 500M
+                reservations:
+                    cpus: '0.25'
+                    memory: 20M
     python-api:
         image: vega/python
         labels:
@@ -51,6 +73,14 @@ services:
         deploy:
             mode: replicated
             replicas: 2
+            resources:
+                limits:
+                    cpus: '0.50'
+                    memory: 500M
+                reservations:
+                    cpus: '0.25'
+                    memory: 20M
+        tty: true
     portainer:
         image: portainer/portainer:latest
         volumes:
