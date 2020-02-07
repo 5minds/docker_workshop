@@ -1,5 +1,7 @@
 FROM python:3.7-alpine
 
+EXPOSE 3001
+
 RUN pip install pipenv
 
 WORKDIR /app
