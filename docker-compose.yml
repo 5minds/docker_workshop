@@ -13,6 +13,7 @@ services:
             - traefik.http.routers.dotnetcore-api.rule=PathPrefix(`/dotnetcore`)
             - traefik.http.routers.dotnetcore-api.middlewares=dotnetcore-api
             - "traefik.http.middlewares.dotnetcore-api.stripprefix.prefixes=/dotnetcore"
+            - "traefik.http.routers.myrouter.entrypoints=web"
     frontend:
         image: vega/frontend
         build:
@@ -24,6 +25,7 @@ services:
             - traefik.http.routers.frontend.rule=PathPrefix(`/frontend`)
             - traefik.http.routers.frontend.middlewares=frontend
             - "traefik.http.middlewares.frontend.stripprefix.prefixes=/frontend"
+            - "traefik.http.routers.myrouter.entrypoints=web"
     node-api:
         image: vega/node
         build:
@@ -35,6 +37,7 @@ services:
             - traefik.http.routers.node.rule=PathPrefix(`/node`)
             - traefik.http.routers.node.middlewares=node
             - "traefik.http.middlewares.node.stripprefix.prefixes=/node"
+            - "traefik.http.routers.myrouter.entrypoints=web"
     python-api:
         image: vega/python
         build:
@@ -46,6 +49,7 @@ services:
             - traefik.http.routers.python.rule=PathPrefix(`/python`)
             - traefik.http.routers.python.middlewares=python
             - "traefik.http.middlewares.python.stripprefix.prefixes=/python"
+            - "traefik.http.routers.myrouter.entrypoints=web"
         tty: true
     portainer:
         image: portainer/portainer:latest
